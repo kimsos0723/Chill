@@ -60,4 +60,8 @@ dkms.conf
 .vscode/*
 
 # End of https://www.toptal.com/developers/gitignore/api/c,vscode
+
+### fcgi ###
 chill_fcgi.fcgi
+fcgi2
+
