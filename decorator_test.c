@@ -7,10 +7,10 @@ typedef struct chill_blueprint chill_blueprint;
 
 #define CONCAT_(x,y) x##y
 #define GEN_FUNC_NAME(x,y) CONCAT_(x,y)
-
+#define CHILL_ROUTE_FUNC_NAME_BASE CHILLXX_ROUTE_FUNC_BASE_ // if you use function or value name start with this, You make sure the names overlap
 #define ADD_BRUEPRINT(__url, __options, __fn_name) \
     extern chill_string __fn_name(chill_string options);\
-    void __attribute__((constructor)) GEN_FUNC_NAME(a, __COUNTER__ ) () {\
+    void __attribute__((constructor)) GEN_FUNC_NAME(CHILL_ROUTE_FUNC_NAME_BASE, __COUNTER__ ) () {\
         __fn_name(make_chill_string(#__options));\
     }\
     chill_string __fn_name(chill_string options)
